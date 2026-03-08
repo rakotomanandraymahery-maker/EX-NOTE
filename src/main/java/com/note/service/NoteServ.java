@@ -43,7 +43,7 @@ public class NoteServ {
         return diffs;
     }
 
-    private List<Note> sortNotesReversed(List<Note> notes) {
+    public List<Note> sortNotesReversed(List<Note> notes) {
         notes.sort(Comparator.comparingDouble(Note::getNote).reversed());
         return notes;
     }
