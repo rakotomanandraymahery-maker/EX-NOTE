@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 // import java.util.Optional;
+import java.util.Optional;
 
 @Service
 public class NoteServ {
@@ -48,7 +49,38 @@ public class NoteServ {
         return notes;
     }
 
-//////
+    
+////// CRUD
+
+   public List<Note> findAll() {
+        return noteRepo.findAll();
+    }
+
+    public Note save(Note note) {
+        return noteRepo.save(note);
+    }
+
+    public Optional<Note> findById(Long id) {
+        return noteRepo.findById(id);
+    }
+
+    public Note update(Long id, Note noteDetails) {
+        Optional<Note> noteOpt = noteRepo.findById(id);
+        if (noteOpt.isPresent()) {
+            Note note = noteOpt.get();
+            note.setCorrecteur(noteDetails.getCorrecteur());
+            note.setCandidat(noteDetails.getCandidat());
+            note.setMatiere(noteDetails.getMatiere());
+            note.setExamen(noteDetails.getExamen());
+            note.setNote(noteDetails.getNote());
+            return noteRepo.save(note);
+        }
+        return null;
+    }
+
+    public void delete(Long id) {
+        noteRepo.deleteById(id);
+    }
 
 
 

@@ -44,7 +44,7 @@ public class NoteFinalServ {
                 valide = true;
             } else if (op.equals("<") && sumDiff < parametre.getSeuilSumDiff()) {
                 valide = true;
-            } else if (op.equals("==") && sumDiff == parametre.getSeuilSumDiff()) {
+            } else if (op.equals("=") && sumDiff == parametre.getSeuilSumDiff()) {
                 valide = true;
             }
 
