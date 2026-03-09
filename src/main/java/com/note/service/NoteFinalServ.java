@@ -40,12 +40,12 @@ public class NoteFinalServ {
             boolean valide = false;
             String op = parametre.getOperateur().getOperateur();
 
-            if (op.equals(">") && sumDiff > parametre.getSeuilSumDiff()) {
+            if (op.equals(">=") && sumDiff >= parametre.getSeuilSumDiff()) {
                 valide = true;
-            } else if (op.equals("<") && sumDiff < parametre.getSeuilSumDiff()) {
+            } else if (op.equals("<=") && sumDiff <= parametre.getSeuilSumDiff()) {
                 valide = true;
-            } else if (op.equals("=") && sumDiff == parametre.getSeuilSumDiff()) {
-                valide = true;
+            } else { 
+                valide = false;
             }
 
             if (valide) {
